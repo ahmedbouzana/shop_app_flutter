@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/cart_provider.dart';
+import 'package:shop_app/providers/cart_provider.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   final Map<String, Object> product;
@@ -54,7 +54,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           const Spacer(),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset(widget.product['imageUrl'] as String),
+            child: Image.asset(
+              widget.product['imageUrl'] as String,
+              height: 250,
+            ),
           ),
           const Spacer(flex: 2),
           Container(
@@ -107,7 +110,8 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
-                      minimumSize: const Size(double.infinity, 50),
+                      fixedSize: const Size(350, 50),
+                      //maximumSize: const Size(double.infinity, 50),
                     ),
                     label: const Text(
                       'Add To Cart',
@@ -118,8 +122,8 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     ),
                     icon: const Icon(
                       Icons.shopping_cart,
-                      /*  color: Colors.green,
-            size: 30.0, */
+                      color: Colors.green,
+                      size: 30.0,
                     ),
                   ),
                 )
